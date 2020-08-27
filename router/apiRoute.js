@@ -3,17 +3,15 @@ const fs = require('fs');
 
 // return the routing to server.js
 module.exports = function (app) {
-	// load the data from the database when get perform
-	//  app.get('/api/notes', async (req, res) => {
-	//      try{
-	//          const database = await fs.readFile('../db/db.json')
-	//      }
-	//     res.json(dataBase);
-	//   });
-	app.get('/api/notes', function (req, res) {
-		(notes) => {
-			fs.readFile('../db/db.json');
-		};
-		return res.json(notes);
-	});
+    const dataPath = './db/db.json';
+    // get the data from the database
+	app.get('/api/notes', (req, res) => {
+		fs.readFile(dataPath, (err, data) => {
+			if (err) {
+				throw err;
+			}
+			res.send(JSON.parse(data));
+		});
+    });
+    
 };
