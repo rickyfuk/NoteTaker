@@ -1,15 +1,34 @@
 // get the path module
 const path = require('path');
+// get the router module
+var router = require('express').Router();
 
-// return the routing to server.js
-module.exports = function (app) {
-	// get the notes.html
-	app.get('/notes', function (req, res) {
-		res.sendFile(path.join(__dirname, '../public/notes.html'));
+// "/notes" responds with the notes.html file
+router.get('/notes', function (req, res, next) {
+	res.sendFile(path.join(__dirname, '../public/notes.html'), function (err) {
+		if (err) {
+			console.log(err);
+			res.status(err.status).end();
+		} else {
+			console.log(
+				`${path.join(__dirname, '../public/notes.html ')}File has been Sent`
+			);
+		}
 	});
+});
 
-	// If no matching route is found default to home
-	app.get('*', function (req, res) {
-		res.sendFile(path.join(__dirname, '../public/index.html'));
+// All other routes respond with the index.html file
+router.get('*', function (req, res, next) {
+	res.sendFile(path.join(__dirname, '../public/index.html'), function (err) {
+		if (err) {
+			console.log(err);
+			res.status(err.status).end();
+		} else {
+			console.log(
+				`${path.join(__dirname, '../public/index.html ')}File has been Sent`
+			);
+		}
 	});
-};
+});
+
+module.exports = router;
