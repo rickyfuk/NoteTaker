@@ -3,8 +3,6 @@ const router = require('express').Router();
 // get the Connector.js
 const Connector = require('../db/connect');
 
-// console.log(notes);
-
 // route to the function for getting the data from the database
 router.get('/notes', (req, res) => {
 	// route to the function
