@@ -8,11 +8,7 @@ router.get('/notes', function (req, res, next) {
 	res.sendFile(path.join(__dirname, '../public/notes.html'), function (err) {
 		if (err) {
 			console.log(err);
-			res.status(err.status).end();
-		} else {
-			console.log(
-				`${path.join(__dirname, '../public/notes.html ')}File has been Sent`
-			);
+			throw err;
 		}
 	});
 });
@@ -22,11 +18,7 @@ router.get('*', function (req, res, next) {
 	res.sendFile(path.join(__dirname, '../public/index.html'), function (err) {
 		if (err) {
 			console.log(err);
-			res.status(err.status).end();
-		} else {
-			console.log(
-				`${path.join(__dirname, '../public/index.html ')}File has been Sent`
-			);
+			throw err;
 		}
 	});
 });
