@@ -15,14 +15,15 @@ Homework 10 - Employee Summary
 - [Technology](#technology)
 - [Local File Description](#local-file-description)
 - [Code Example](#code-example)
-- [Test](#test)
 - [Status](#status)
 - [Future Plan](#future-plan)
 - [Create By](#create-by)
 
 # General info
 
-This project is to bulid a application to generate the team infomation with the input from the user - The Manager.
+This project is to bulid a note taker app where it is running on a cloud drive and allow the user to add/read/delete notes from the apps.
+
+Please visit [https://rf-notetaker-app.herokuapp.com/](https://rf-notetaker-app.herokuapp.com/) for the site.
 
 For the feature of the site, please visit the [Features](#features) section for more details.
 
@@ -116,19 +117,6 @@ class Manager extends Employee {
 		this.officeNumber = officeNumber;
 	}
 ```
-
-# Test
-
-1. The application have passed the following test:
-   1. Employee.test.js
-   2. Engineer.test.js
-   3. Intern.test.js
-   4. Manager.test.js
-   - Please following the following code to perform the test if needed
-     for instance - Employee.test.js
-     ```sh
-     npm test
-     ```
 
 # Status
 
