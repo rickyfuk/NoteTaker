@@ -9,12 +9,10 @@ Homework 10 - Employee Summary
 - [General info](#general-info)
 - [Screenshots](#screenshots)
 - [Features](#features)
-- [Installation](#installation)
 - [User Guide](#user-guide)
 - [Code Style](#code-style)
 - [Technology](#technology)
 - [Local File Description](#local-file-description)
-- [Code Example](#code-example)
 - [Status](#status)
 - [Future Plan](#future-plan)
 - [Create By](#create-by)
@@ -29,38 +27,32 @@ For the feature of the site, please visit the [Features](#features) section for 
 
 # Screenshots
 
-![screenshot](https://github.com/rickyfuk/employeesummary/blob/master/assets/images/screenshot.PNG?raw=true)
+![screenshot](https://github.com/rickyfuk/NoteTaker/blob/master/public/assets/images/screenshot.PNG?raw=true)
 
 # Features
 
-In this project, the following features have apply to the site:
+In this application, the following features have been applied:
 
-1. The user can add as many team members as needed
-2. The application will display the input from node.js to html
-3. All input contain validator in order to avold the user misinput the wrong infomation
-4. Below is the input field for different job role:
-   | job role | name | Staff ID | Email | Office Number | GitHub | School |
-   | :-----------: | :----: | :----: | :----: | :----: | :----: | :----: |
-   | Manager | &#10004; | &#10004; | &#10004; | &#10004; | | |
-   | Engineer | &#10004; | &#10004; | &#10004; | | &#10004; | |
-   | Intern | &#10004; | &#10004; | &#10004; | | | &#10004; |
-
-# Installation
-
-The user must install the npm package before they run the apps:
-
-```sh
-npm install
-```
+1. The user can tranverse to different pages by the server application
+2. The user can perform the following function for the notes:
+   1. Add
+   2. Read
+   3. Delete
+3. ALl the saved data will put into a database
 
 # User Guide
 
-The user need to type the following code to start the application from Terminal:
-(Please ensure the folder path is correct)
+The main page (landing page):
 
-```sh
-node app.js
-```
+1. "Get Started" button - will divert to the notes page for managing the notes.
+
+The notes page:
+
+1. When the users press the Pencil Button <img src="../NoteTaker/public/assets/images/pencil.png" width="20"/> on the right hand corner, they can start writing a new notes.
+2. When the users enter the title and content, then a save button <img src="../NoteTaker/public/assets/images/save.png" width="20"/> will pop up on the right hand corner and they can save the file at any time they want.
+3. The user can view any previous notes by pressing the previous notes on the left hand side.
+   <img src="../NoteTaker/public/assets/images/display.png" width="300"/>
+4. The user can delete the note by pressing the Bin Button <img src="../NoteTaker/public/assets/images/bin.png" width="20"/> next to the notes
 
 # Code Style
 
@@ -77,46 +69,31 @@ The following technology have been used for this project:
 5. [JavaScript](https://www.javascript.com/)
 6. [NodeJS](https://nodejs.org/en/)
 7. [NPM](https://www.npmjs.com/)
-   The following application from NPM have been used:
-   1. Inquirer
-   2. jest (for testing the JS)
+   - The following application from NPM have been used:
+   1. [Express](https://expressjs.com/)
 
 # Local File Description
 
 Below are the description for all local files:
 
 1. HTML:
-   1. team.html - The final output for the application - team member information
-   2. main.html - The template for buliding the structure for team.html
-   3. engineer.html - The template for building the engineer card
-   4. intern.html - The template for building the intern card
-   5. manager.html - The template for building the manager card
+   1. index.html - The landing html page for the application
+   2. notes.html - The notes html page for the user to manage the notes
 2. CSS:
    1. style.css - to add the local style to this application
 3. Javascript
-   1. app.js - the main javascript file to keep the script for getting the information from the user and relay it back to html
-   2. prompt.js - the javascript file to keep all the question for the user and render it in due course
-   3. Employee.js - the constructor for the employee class
-   4. Engineer.js - the constructor for the engineer class
-   5. Intern.js - the constructor for the intern class
-   6. Manager.js - the constructor for the manager class
-   7. htmlRender.js - the script to return the information to html
+   1. Part 1 - Public
+      1. index.js - the javascript file to trasit the information from API into html
+   2. Part 2 - Main folder
+      1. server.js - the javascript file to listen to the user instruction and divert the request to the corresponding js router file
+   3. Part 3 - Router
+      1. htmlroute.js - the javascript file to change the display of the html pages by the instruction from server.js
+      2. apiroute.js - the javascript file to recieved the API changes request andtake corresponding action (recieved from connect.js) to reply on the API.
+   4. Part 4 - DB
+      1. connect.js - contain the program for different API action and provide the script for apiroute.js to run in due course
 4. JSON
    1. package.json - the main file for the description of the application and the dependencies
-
-# Code Example
-
-Below are some example for the code has been used and the corresponding outcome:
-
-1. Use class with extend to build up the class
-
-```Javascript
-class Manager extends Employee {
-	constructor(name, id, email, officeNumber) {
-		super(name, id, email);
-		this.officeNumber = officeNumber;
-	}
-```
+   2. db.json - the database to keep the notes
 
 # Status
 
@@ -126,9 +103,8 @@ Project status: finished
 
 Plan for the future development of this site:
 
-1. Put it on a live server
-2. Build a better front-end layout (i.e. Manager level / Engineer Level / Intern Level)
-3. Build a Organization chart with the tree diagram.
+1. Add the update version
+2. Add the authentication system
 
 # Create By
 
